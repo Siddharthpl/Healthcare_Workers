@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
+  reactStrictMode: true,
+  swcMinify: true, // Fast JS minification in production
+  typescript: {
+    ignoreBuildErrors: false, // Set to true ONLY if you want to bypass build errors temporarily
+  },
   env: {
     AUTH0_SECRET: process.env.AUTH0_SECRET,
     AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
@@ -10,4 +14,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
