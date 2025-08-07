@@ -21,8 +21,9 @@ function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
 
 export const resolvers = {
   Query: {
-    me: async (_: any, __: any, context: any) => {
-      const session = await getSession(context.req);
+    me: async (_: any, __: any, context: { req: NextApiRequest }) => {
+      const session = await getSession({ req: context.req });
+
       if (!session?.user) return null;
 
       return await prisma.user.findUnique({
