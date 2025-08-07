@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/manager/page": "app/manager/page.js",
+  "/page": "app/page.js",
+  "/manager/login/page": "app/manager/login/page.js",
+  "/api/auth/[...auth0]/route": "app/api/auth/[...auth0]/route.js",
+  "/api/graphql/route": "app/api/graphql/route.js",
+  "/staff/[id]/page": "app/staff/[id]/page.js"
+}

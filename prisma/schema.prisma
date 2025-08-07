@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  auth0Id   String   @unique
+  email     String   @unique
+  name      String?
+  role      UserRole @default(CARE_WORKER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  clockRecords ClockRecord[]
+  
+  @@map("users")
+}
+
+model Organization {
+  id          String  @id @default(cuid())
+  name        String
+  latitude    Float
+  longitude   Float
+  radius      Float   @default(2000) // radius in meters
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  clockRecords ClockRecord[]
+  
+  @@map("organizations")
+}
+
+model ClockRecord {
+  id           String      @id @default(cuid())
+  userId       String
+  organizationId String
+  type         ClockType
+  timestamp    DateTime    @default(now())
+  latitude     Float?
+  longitude    Float?
+  note         String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  // Relations
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  @@map("clock_records")
+}
+
+enum UserRole {
+  MANAGER
+  CARE_WORKER
+}
+
+enum ClockType {
+  CLOCK_IN
+  CLOCK_OUT
+}
