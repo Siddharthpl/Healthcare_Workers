@@ -1,3 +1,4 @@
+import type { NextApiRequest } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { getSession } from '@auth0/nextjs-auth0';
 
