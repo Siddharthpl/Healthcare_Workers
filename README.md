@@ -1,16 +1,25 @@
 # Healthcare Worker Clock-In App
 
 A full-stack web application for healthcare organizations to manage staff attendance with location-based clock-in/out, analytics, and real-time monitoring.
-For maanger - https://healthcare-pd65.onrender.com/manager/login
-# Manager Login Credentials
-MANAGER_EMAIL=manager@example.com
-MANAGER_PASSWORD=yourStrongPassword
 
-For Worker - https://healthcare-pd65.onrender.com
-# Manager Login Credentials
-MANAGER_EMAIL=siddharth@gmail.com
-MANAGER_PASSWORD=Siddharth@123
 ---
+
+## Manager Portal  
+🔗 https://healthcare-pd65.onrender.com/manager/login  
+
+**Credentials:**  
+- **Email:** manager@example.com  
+- **Password:** yourStrongPassword
+
+---
+
+## Worker Portal  
+🔗 https://healthcare-pd65.onrender.com  
+
+**Sample User Credentials:**  
+- **Email:** siddharth@gmail.com  
+- **Password:** Siddharth@123
+
 
 ## 📖 Overview
 
